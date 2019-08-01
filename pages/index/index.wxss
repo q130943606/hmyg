@@ -1,0 +1,25 @@
+/* pages/index/index.wxss */
+.index_swiper swiper {
+  height: 340rpx;
+}
+.idnex_cate {
+  display: flex;
+}
+.idnex_cate navigator {
+  flex: 1;
+  padding: 25rpx;
+}
+.index_floor .floor_content {
+  overflow: hidden;
+}
+.index_floor .floor_content navigator {
+  width: 33.333333333333333333%;
+  float: left;
+}
+.index_floor .floor_content navigator image {
+  height: 100%;
+}
+.index_floor .floor_content navigator image:nth-last-child(-n + 4) {
+  height: 199.10029741rpx;
+  border-left: 8rpx solid #fff;
+}

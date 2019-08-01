@@ -1,0 +1,4 @@
+/* pages/goods_list/index.wxss */
+.index_swiper swiper {
+  height: 340rpx;
+}

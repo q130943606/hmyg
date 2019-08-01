@@ -1,0 +1,48 @@
+/* pages/category/index.wxss */
+.cate_container {
+    height: ~'calc(100vh - 90rpx)';
+    display: flex;
+    .cate_left {
+        flex: 1;
+        .cate_menu{
+            height: 80rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30rpx;
+            border-bottom: 2rpx solid #ccc;
+        }
+        // 激活选中属性
+        .cate_active {
+            color: var(--themeColor);
+            border-left: 5rpx solid currentColor;
+        }
+    }
+    .cate_right{
+        flex: 3;
+       .cate_goods{
+           .cate-title{
+                height: 80rpx;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .name{
+                    padding: 0 12rpx;
+                    font-size: 30rpx;
+                    color: #000;
+                }
+           }
+           .cate_content{
+               display: flex;
+               flex-wrap: wrap;
+            navigator{
+                width: 33.333%;
+                text-align: center;
+                image{
+                    width: 50%;
+                }
+            }
+           }
+       }
+    }
+}
