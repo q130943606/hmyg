@@ -14,7 +14,7 @@ Page({
     // 滚动条距离顶部位置
     scrollTap: 0
   },
-  // 左侧菜单点击事件
+  // 左侧菜单，切换选中
   handleclk(e) {
     const { index } = e.currentTarget.dataset
     this.setData({
@@ -23,10 +23,11 @@ Page({
     })
 
   },
-  // 左侧菜单，切换选中
+  // 获取数据源
   getLeftList() {
     request({ url: "/categories" })
       .then(result => {
+        wx.setStorageSync('categoryData', { time: Date.now(), data: result });
         this.setData({
           categoryList: result
         })
@@ -37,7 +38,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getLeftList();
+    // 获取本地数据
+    const data = wx.getStorageSync('categoryData');
+    // 没有数据，发请求拿数据
+    if (!data) {
+      this.getLeftList();
+    } else {
+      // 判断数据是否过期
+      if (Date.now() - data.time > 3000 * 10) {
+        this.getLeftList();
+      } else {
+        const cate_data = data.data
+        this.setData({
+          categoryList: cate_data
+        })
+      }
+    }
   },
 
   /**
