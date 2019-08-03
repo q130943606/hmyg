@@ -18,7 +18,7 @@
                 <text class="separator">/</text>
             </view>
             <view class="cate_content">
-                <navigator wx:for="{{item1.children}}" wx:for-item="item2" wx:for-index="index2" wx:key="cat_id">
+                <navigator wx:for="{{item1.children}}" wx:for-item="item2" wx:for-index="index2" wx:key="cat_id" url="/pages/goods_list/index?cid={{item2.cat_id}}">
                     <image mode="widthFix" src="{{item2.cat_icon}}" />
                     <view class="name">{{item2.cat_name}}</view>
                 </navigator>

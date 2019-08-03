@@ -7,7 +7,7 @@ image {
   width: 100%;
 }
 page {
-  --themeColor:red;
+  --themeColor:#eb4450;
   color: #666;
   font-size: 28rpx;
 }
