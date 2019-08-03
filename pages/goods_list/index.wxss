@@ -1,4 +1,31 @@
 /* pages/goods_list/index.wxss */
-.index_swiper swiper {
-  height: 340rpx;
+.contents .grop {
+  display: flex;
+  border-bottom: 2rpx solid #ccc;
+}
+.contents .grop .img {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.contents .grop .img image {
+  width: 70%;
+}
+.contents .grop .goods {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.contents .grop .goods .goods_name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  color: #000;
+  font-size: 28rpx;
+}
+.contents .grop .goods .goods_price {
+  font-size: 32rpx;
+  color: var(--themeColor);
 }

@@ -39,13 +39,20 @@ Page({
     // 分类id
     cid: ''
   },
+  // 总页数
+  totalPages: '',
   // 获取数据源
   getGoodsList() {
     request({ url: '/goods/search', data: this.goods_list })
       .then(result => {
+        // 计算总页数
+        this.totalPages = Math.ceil(result.total / this.goods_list.pagesize)
         this.setData({
-          goods_Data: result.goods
+          // 把data里面的旧数据和新数据拼接
+          goods_Data: [...this.data.goods_Data, ...result.goods]
         })
+        // 关闭页面下拉刷新效果
+        wx.stopPullDownRefresh()
       })
   },
   handItemChange(e) {
@@ -98,6 +105,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    // 重置页码
+    this.goods_list.pagenum = 1
+    // 重置数据源
+    this.setData({
+      goods_Data: []
+    })
+    this.getGoodsList()
 
   },
 
@@ -105,7 +119,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    // 判断是否有下一页数据
+    if (this.goods_list.pagenum >= this.totalPages) {
+      wx.showToast({ title: '没有下页数据了', mask: true, icon: 'none' })
+    } else {
+      this.goods_list.pagenum++;
+      // 然后重新发请求
+      this.getGoodsList()
+    }
   },
 
   /**

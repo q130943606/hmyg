@@ -2,4 +2,24 @@
 <!-- 搜索框 -->
 <Searchinput></Searchinput>
 <!-- tab栏 -->
-<Tabs tabs="{{title}}" binditemChange="handItemChange"></Tabs>
+<Tabs tabs="{{title}}" binditemChange="handItemChange">
+    <block wx:if="{{title[0].isActive}}">
+        <!-- 内容 -->
+        <view class="contents">
+            <!-- 单项盒子 -->
+            <view class="grop" wx:for="{{goods_Data}}" wx:key="goods_id">
+                <!-- 左侧商品图片 -->
+                <view class="img">
+                    <image mode="widthFix" src="{{item.goods_small_logo||'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564810256651&di=183549786dde7e20e17d0b8439de0071&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01ef435652db7632f87512f6a752d6.png%40900w_1l_2o_100sh.jpg'}}" />
+                </view>
+                <!-- 右侧商品信息 -->
+                <view class="goods">
+                    <view class="goods_name">{{item.goods_name}}</view>
+                    <view class="goods_price">￥{{item.goods_price}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:elif="{{title[1].isActive}}">待开发</block>
+    <block wx:elif="{{title[2].isActive}}">待开发</block>
+</Tabs>
