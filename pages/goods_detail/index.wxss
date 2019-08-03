@@ -1,1 +1,86 @@
 /* pages/goods_detail/index.wxss */
+page {
+  padding-bottom: 90rpx;
+}
+.detail_swiper swiper {
+  height: 57vw;
+  text-align: center;
+}
+.detail_swiper swiper image {
+  width: 50%;
+}
+.goods_price {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--themeColor);
+  padding: 16rpx 10rpx;
+}
+.grop_list {
+  display: flex;
+  padding: 10rpx;
+  border-bottom: 10rpx solid #dedede;
+}
+.grop_list .grop_name {
+  flex: 4;
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
+.grop_list .grop_icon {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-left: 1rpx solid #000;
+}
+.goods_particulars .particulars_title {
+  font-size: 38rpx;
+  color: var(--themeColor);
+  font-weight: 600;
+  padding: 16rpx;
+  border-bottom: 10rpx solid #dedede;
+}
+.toolbar {
+  display: flex;
+  height: 90rpx;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  border-top: 1rpx solid #ccc;
+}
+.toolbar .toolbar_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.toolbar .toolbar_item .text_color {
+  color: #000;
+  font-size: 24rpx;
+}
+.toolbar .btn_cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffa500;
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 500;
+  flex: 2;
+}
+.toolbar .btn_buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eb4450;
+  color: #fff;
+  flex: 2;
+  font-size: 28rpx;
+  font-weight: 500;
+}

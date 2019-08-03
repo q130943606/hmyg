@@ -1,2 +1,50 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<!-- pages/goods_detail/index.wxml -->
+<!-- 轮播图开始 -->
+<view class="detail_swiper">
+    <swiper autoplay circular indicator-dots>
+        <swiper-item wx:for="{{goodsData.pics}}" wx:key="pics_id" bindtap="handlemMagnify" data-index='{{index}}'>
+            <image mode="widthFix" src="{{item.pics_mid}}"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<!-- 轮播图结束 -->
+<!-- 商品价格开始 -->
+<view class="goods_price">￥{{goodsData.goods_price}}</view>
+<!-- 商品价格结束 -->
+<!-- 商品名称开始 -->
+<view class="grop_list">
+    <!-- 左侧标题 -->
+    <view class="grop_name">{{goodsData.goods_name}}</view>
+    <!-- 右侧收藏图标 -->
+    <view class="grop_icon">
+        <text class="iconfont icon-shoucang"></text>
+        <view class="icon_name">收藏</view>
+    </view>
+</view>
+<!-- 商品名称结束 -->
+<!-- 图文详情开始 -->
+<view class="goods_particulars">
+    <view class="particulars_title">图文详情</view>
+    <view class="particulars_content">
+        <rich-text class="" nodes="{{goodsData.goods_introduce}}"></rich-text>
+    </view>
+</view>
+<!-- 图文详情结束 -->
+<!-- 工具栏功能开始 -->
+<view class="toolbar">
+    <view class="toolbar_item">
+        <text class="iconfont icon-kefu"></text>
+        <view class="text_color">联系客服</view>
+    </view>
+    <view class="toolbar_item">
+        <text class="iconfont icon-fenxiang"></text>
+        <view class="text_color">分享</view>
+    </view>
+    <view class="toolbar_item">
+        <text class="iconfont icon-icon-gouwuche"></text>
+        <view class="text_color">购物车</view>
+    </view>
+    <view class="toolbar_item btn_cart">加入购物车</view>
+    <view class="toolbar_item btn_buy">立即购买</view>
+</view>
+<!-- 工具栏功能结束 -->

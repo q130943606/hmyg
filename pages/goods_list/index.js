@@ -41,6 +41,7 @@ Page({
   },
   // 总页数
   totalPages: '',
+
   // 获取数据源
   getGoodsList() {
     request({ url: '/goods/search', data: this.goods_list })
