@@ -1,2 +1,5 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="profile_box">
+    <view class="profile">
+        <button type='primary' plain bindtap='handleAddress'>添加收货地址</button>
+    </view>
+</view>

@@ -1,1 +1,6 @@
-/* pages/cart/index.wxss */
+.profile_box .profile {
+  padding: 20rpx 0;
+}
+.profile_box .profile button {
+  width: 50%;
+}

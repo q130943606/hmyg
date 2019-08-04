@@ -7,6 +7,44 @@ Page({
   data: {
 
   },
+  handleAddress() {
+    // 调用获取用户对小程序的授权接口，判断返回值scope对应的权限信息
+    // scope: undefined  用户从来没点击收货地址按钮，直接获取用户的收货地址
+    // scopr: true       用户曾经给过应用权限，直接获取地址
+    // scope: false      用户曾经点过取消授权，先打开授权页面，让用户重新授权，再去获取地址信息
+    wx.getSetting({
+      success: (result) => {
+        // 获取用户是否授权了地址
+        const scoprAddress = result.authSetting["scope.address"]
+        // 判断用户授权状态
+        if (scoprAddress === true || scoprAddress === undefined) {
+          // 获取用户收货地址
+          wx.chooseAddress({
+            success: (res) => {
+              console.log(res)
+            },
+          });
+
+        } else {
+          // 打开授权页面
+          wx.openSetting({
+            success: (res2) => {
+              // 获取收货地址
+              wx.chooseAddress({
+                success: (res3) => {
+                  console.log(res3)
+                },
+              });
+            },
+          });
+        }
+      },
+      fail: () => { },
+      complete: () => { }
+    });
+
+
+  },
 
   /**
    * 生命周期函数--监听页面加载
