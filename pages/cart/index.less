@@ -1,8 +1,132 @@
+page {
+    padding-bottom: 90rpx;
+}
 .profile_box {
     .profile{
         padding: 20rpx 0;
         button {
             width: 50%;
         }
+    }
+    .profile_info{
+        .profile_address{
+            display: flex;
+            color: black;
+            font-size: 30rpx;
+            padding: 20rpx;
+            .address_left {
+                flex: 2;
+            }
+            .address_right {
+                text-align: right;
+                flex: 1
+            }
+        }
+    }  
+}
+
+.cart_main {
+    .cart_title{
+        padding: 20rpx 10rpx;
+        font-size: 36rpx;
+        color: var(--themeColor);
+        border-top: 1rpx solid currentColor;
+        border-bottom: 1rpx solid currentColor;
+    }
+    .cart_content{
+        border-bottom: 1rpx solid #dedede;
+        display: flex;
+        .cart_checkbox{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .cart_img{
+            padding: 10rpx 0;
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            image{
+                width: 80%;
+            }
+        }
+        .cart_info{
+            flex: 4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .cart_name{
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp:2;
+            }
+            .cart_info_grop{
+                display: flex;
+               justify-content: space-between;
+               padding: 0 20rpx;
+                .cart_price{
+                    color: var(--themeColor);
+                    font-size: 32rpx;
+                    font-weight: 500;
+                }
+                .cart_tool{
+                    display: flex;
+                    .tool_cut,.tool_add{
+                        width: 50rpx;
+                        height: 50rpx;
+                        border: 1rpx solid #ccc;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .tool_txt{
+                        padding: 8rpx 15rpx;
+                      
+                    }
+                }
+            }
+        }
+      
+    }
+}
+
+.btm_tool {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 90rpx;
+    background-color: #fff;
+    display: flex;
+    border-top: 1px solid #ccc;
+    .all_check {
+        display: flex;
+        flex: 2;
+        justify-content: center;
+        align-items: center;
+    }
+    .btm_tool_info {
+    flex: 5;
+     text-align: right;
+     color: #000;
+     padding-right: 20rpx;
+        .total_price {
+            text{
+                color: var(--themeColor);
+                font-size: 30rpx;
+            }
+        }
+    }
+     .right_btn {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--themeColor);
+        color: #fff;
     }
 }

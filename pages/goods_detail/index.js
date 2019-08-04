@@ -24,9 +24,10 @@ Page({
       cart[this.goods_list.goods_id].num++
 
     } else {
-      // 如果不存在，那么把商品信息设置到本地存储里面 
+      // 如果不存在，那么把商品信息设置到本地存储里面 然后加数量和选中状态属性
       cart[this.goods_list.goods_id] = this.goods_list
       cart[this.goods_list.goods_id].num = 1;
+      cart[this.goods_list.goods_id].checked = true;
     }
     //  把数据存入到本地存储
     setStorageCart(cart)

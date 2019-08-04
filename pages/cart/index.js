@@ -1,11 +1,15 @@
 // pages/cart/index.js
+import { setStorageAddress, getStorageAddress, getStorageCart } from "../../utils/storage.js"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    // 地址信息
+    addressData: {},
+    // 购物车数据
+    cartData: {}
   },
   handleAddress() {
     // 调用获取用户对小程序的授权接口，判断返回值scope对应的权限信息
@@ -20,8 +24,12 @@ Page({
         if (scoprAddress === true || scoprAddress === undefined) {
           // 获取用户收货地址
           wx.chooseAddress({
-            success: (res) => {
-              console.log(res)
+            success: (res1) => {
+              // 拼接下详细地址信息
+              const addressAll = res1.provinceName + res1.cityName + res1.countyName + res1.detailInfo
+              res1["addressAll"] = addressAll
+              // 收货地址信息存储到本地存储
+              setStorageAddress(res1)
             },
           });
 
@@ -32,15 +40,17 @@ Page({
               // 获取收货地址
               wx.chooseAddress({
                 success: (res3) => {
-                  console.log(res3)
+                  // 拼接下详细地址信息
+                  const addressAll = res3.provinceName + res3.cityName + res3.countyName + res3.detailInfo
+                  res3["addressAll"] = addressAll
+                  // 收货地址信息存储到本地存储
+                  setStorageAddress(res3)
                 },
               });
             },
           });
         }
       },
-      fail: () => { },
-      complete: () => { }
     });
 
 
@@ -64,7 +74,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //  获取地址信息和商品信息
+    this.setData({
+      addressData: getStorageAddress() || {},
+      cartData: getStorageCart() || {}
+    })
   },
 
   /**

@@ -17,3 +17,11 @@ export const getStorageCate = () => {
 export const setStorageCate = (obj) => {
     wx.setStorageSync('categoryData', obj)
 }
+// 设置购物车收货地址到本地存储
+export const setStorageAddress = (obj) => {
+    wx.setStorageSync('categoryAddress', obj)
+}
+// 从本地存储获取购物车收货地址
+export const getStorageAddress = () => {
+    return wx.getStorageSync('categoryAddress')
+}
