@@ -59,10 +59,27 @@ page {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .toolbar .toolbar_item .text_color {
   color: #000;
   font-size: 24rpx;
+}
+.toolbar .toolbar_item .btn_kefu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.toolbar .toolbar_item .btn_fenxiang {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }
 .toolbar .btn_cart {
   display: flex;

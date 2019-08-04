@@ -35,16 +35,18 @@
     <view class="toolbar_item">
         <text class="iconfont icon-kefu"></text>
         <view class="text_color">联系客服</view>
+        <button open-type="contact" class="btn_kefu"></button>
     </view>
     <view class="toolbar_item">
         <text class="iconfont icon-fenxiang"></text>
         <view class="text_color">分享</view>
+        <button open-type="share" class="btn_fenxiang"></button>
     </view>
     <view class="toolbar_item">
         <text class="iconfont icon-icon-gouwuche"></text>
-        <view class="text_color">购物车</view>
+        <navigator class="text_color" url="/pages/cart/index" open-type='switchTab'>购物车</navigator>
     </view>
-    <view class="toolbar_item btn_cart">加入购物车</view>
+    <view class="toolbar_item btn_cart" bindtap='handleAddCart'>加入购物车</view>
     <view class="toolbar_item btn_buy">立即购买</view>
 </view>
 <!-- 工具栏功能结束 -->

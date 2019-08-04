@@ -1,6 +1,7 @@
 // pages/goods_detail/index.js
 
 import { request } from '../../request/ask.js'
+import { setStorageCart, getStorageCart } from '../../utils/storage.js'
 Page({
 
   /**
@@ -10,7 +11,29 @@ Page({
     // 页面数据源
     goodsData: {}
   },
+  // 商品信息对象
+  goods_list: {},
   goods_id: '',
+  // 加入购物车
+  handleAddCart() {
+    // 从本地存储获取商品信息
+    let cart = getStorageCart() || {};
+    // 判断本地存储是否有商品id
+    if (cart[this.goods_list.goods_id]) {
+      // 如果已经存在，那么让其商品数量+1
+      cart[this.goods_list.goods_id].num++
+
+    } else {
+      // 如果不存在，那么把商品信息设置到本地存储里面 
+      cart[this.goods_list.goods_id] = this.goods_list
+      cart[this.goods_list.goods_id].num = 1;
+    }
+    //  把数据存入到本地存储
+    setStorageCart(cart)
+    // 弹出成功的提示
+    wx.showToast({ title: '加入成功', mask: true, icon: 'sussess' })
+
+  },
   // 点击轮播图的图片，放大预览
   handlemMagnify(e) {
     // 构建预览图数组
@@ -34,10 +57,13 @@ Page({
           goodsData: {
             goods_name: result.goods_name,
             goods_price: result.goods_price,
-            goods_introduce: result.goods_introduce,
+            goods_introduce: result.goods_introduce.replace(/\.webp/g, '.jpg'),
             pics: result.pics
           }
         })
+        this.goods_list = result
+        console.log(this.goods_list.goods_id)
+        wx.stopPullDownRefresh()
       })
   },
 

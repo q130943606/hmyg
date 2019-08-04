@@ -1,6 +1,7 @@
 // pages/category/index.js
 // 引入封装的函数
 import { request } from "../../request/ask.js"
+import { setStorageCate, getStorageCate } from '../../utils/storage.js'
 Page({
 
   /**
@@ -27,7 +28,8 @@ Page({
   getLeftList() {
     request({ url: "/categories" })
       .then(result => {
-        wx.setStorageSync('categoryData', { time: Date.now(), data: result });
+        // wx.setStorageSync('categoryData', { time: Date.now(), data: result });
+        setStorageCate({ time: Date.now(), data: result })
         this.setData({
           categoryList: result
         })
@@ -39,7 +41,7 @@ Page({
    */
   onLoad: function (options) {
     // 获取本地数据
-    const data = wx.getStorageSync('categoryData');
+    const data = getStorageCate()
     // 没有数据，发请求拿数据
     if (!data) {
       this.getLeftList();
